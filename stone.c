@@ -599,7 +599,7 @@ static int process_entry_stow(Context *ctx, const char *src_path,
             free(resolved);
             return -1;
         }
-        printf("  symlink %s -> %s\n", tgt_path, resolved);
+        printf("%-8s %s -> %s\n", "symlink", tgt_path, resolved);
         free(resolved);
         return 0;
     }
@@ -660,7 +660,7 @@ static int process_entry_stow(Context *ctx, const char *src_path,
             free(target);
             return -1;
         }
-        printf("  symlink %s -> %s\n", tgt_path, target);
+        printf("%-8s %s -> %s\n", "symlink", tgt_path, target);
         free(target);
         return 0;
     }
@@ -731,7 +731,7 @@ static int process_entry_delete(Context *ctx, const char *src_path,
     if (S_ISDIR(st.st_mode)) {
         int r = walk_delete(ctx, src_path, tgt_path, rel);
         if (rmdir(tgt_path) == 0)
-            printf("  rmdir %s\n", tgt_path);
+            printf("%-8s %s\n", "rmdir", tgt_path);
         return r;
     }
 
@@ -770,7 +770,7 @@ static int process_entry_delete(Context *ctx, const char *src_path,
                         PROGRAM_NAME, tgt_path, strerror(errno));
                 return -1;
             }
-            printf("  remove %s\n", tgt_path);
+            printf("%-8s %s\n", "remove", tgt_path);
         }
         return 0;
     }
@@ -794,7 +794,7 @@ static int process_entry_delete(Context *ctx, const char *src_path,
                     PROGRAM_NAME, tgt_path, strerror(errno));
             return -1;
         }
-        printf("  remove %s\n", tgt_path);
+        printf("%-8s %s\n", "remove", tgt_path);
         return 0;
     }
 
