@@ -10,7 +10,8 @@ stone [options] <source_dir> [target_dir]
 
 For each regular file in `source_dir`, stone creates a symlink in
 `target_dir` preserving the relative directory structure. Nested
-directories are created as needed.
+directories are created as needed. If `target_dir` is omitted, the
+parent directory of `source_dir` is used.
 
 Symlinks inside `source_dir` are resolved and copied as regular files.
 
