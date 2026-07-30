@@ -68,6 +68,3 @@ These can be overridden with a negation pattern in `.stone-ignore`
 make
 make install   # installs to ~/.local/bin
 ```
-
-Default target is parent of `source_dir`. Specify a second argument
-for a different target.
